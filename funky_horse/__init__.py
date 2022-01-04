@@ -6,73 +6,72 @@ from cairosvg import svg2png
 class FunkyHorse():
 
     def __init__(self):
-        self.svg_list = []
+        self.__svg_list = []
         self.__create()
 
     def __create(self):
-        self.svg_list.clear()
+        self.__svg_list.clear()
         self.color_palette = RandomColorPalette()
-        self.svg_list.append("""<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 2006.3 2006.3">\n""")
-        self.svg_list.append("""<defs><clipPath id="clip-path"><circle cx="1003.15" cy="1003.15" r="1003.15"/></clipPath>""")
-        self.svg_list.append(self.color_palette.generate_svg_style())
-        self.svg_list.append("</defs>")
+        self.__svg_list.append("""<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 2006.3 2006.3">\n""")
+        self.__svg_list.append("""<defs><clipPath id="clip-path"><circle cx="1003.15" cy="1003.15" r="1003.15"/></clipPath>""")
+        self.__svg_list.append(self.color_palette.generate_svg_style())
+        self.__svg_list.append("</defs>")
 
         #Adds the background
-        background = random.choice( os.listdir( os.path.join(os.path.dirname(__file__), "assets\\background"))) #change dir name to whatever
+        background = self.__choose_random_asset("assets\\background") 
 
-        with open(os.path.join(os.path.dirname(__file__),"assets\\background\\" + background)) as svg :
-            self.svg_list.append(svg.read())
+        self.__add_to_list("assets\\background\\" + background)
 
         #Adds the BG Hair
-        hair = random.choice(os.listdir( os.path.join(os.path.dirname(__file__), "assets\\hair"))) #change dir name to whatever
+        hair = self.__choose_random_asset("assets\\hair") 
 
-        with open(os.path.join(os.path.dirname(__file__),"assets\\hair\\{}\\bg.svg".format(hair))) as svg :
-            self.svg_list.append(svg.read())
+        self.__add_to_list("assets\\hair\\{}\\bg.svg".format(hair))
 
         #Adds the left ear
-        ears = random.choice(os.listdir( os.path.join(os.path.dirname(__file__), "assets\\ears"))) #change dir name to whatever
+        ears = self.__choose_random_asset("assets\\ears") 
 
-        with open(os.path.join(os.path.dirname(__file__),"assets\\ears\\{}\\bg.svg".format(ears))) as svg :
-            self.svg_list.append(svg.read())
+        self.__add_to_list("assets\\ears\\{}\\bg.svg".format(ears))
 
         #Adds the main body
-        body = random.choice(os.listdir( os.path.join(os.path.dirname(__file__), "assets\\body"))) #change dir name to whatever
+        body = self.__choose_random_asset("assets\\body") 
 
-        with open(os.path.join(os.path.dirname(__file__), "assets\\body\\" + body)) as svg :
-            self.svg_list.append(svg.read())
+        self.__add_to_list("assets\\body\\" + body)
 
         #Adds the eyes
-        eyes = random.choice(os.listdir( os.path.join(os.path.dirname(__file__), "assets\\eyes"))) #change dir name to whatever
+        eyes = self.__choose_random_asset("assets\\eyes") 
 
-        with open(os.path.join(os.path.dirname(__file__), "assets\\eyes\\" + eyes)) as svg :
-            self.svg_list.append(svg.read())
+        self.__add_to_list("assets\\eyes\\" + eyes)
 
         #Adds the muzzle
-        muzzle = random.choice(os.listdir( os.path.join(os.path.dirname(__file__),"assets\\muzzle"))) #change dir name to whatever
+        muzzle = self.__choose_random_asset("assets\\muzzle") 
 
-        with open(os.path.join(os.path.dirname(__file__), "assets\\muzzle\\" + muzzle)) as svg :
-            self.svg_list.append(svg.read())
+        self.__add_to_list("assets\\muzzle\\" + muzzle)
 
         #Adds the FG Hair
 
-        with open(os.path.join(os.path.dirname(__file__), "assets\\hair\\{}\\fg.svg".format(hair))) as svg :
-            self.svg_list.append(svg.read())
+        self.__add_to_list("assets\\hair\\{}\\fg.svg".format(hair))
 
         #Adds the right ear
 
-        with open(os.path.join(os.path.dirname(__file__),"assets\\ears\\{}\\fg.svg".format(ears))) as svg :
-            self.svg_list.append(svg.read())
+        self.__add_to_list("assets\\ears\\{}\\fg.svg".format(ears))
 
         #adds the accessory
         if random.randrange(0,10) > 5 :
-            accessory = random.choice(os.listdir( os.path.join(os.path.dirname(__file__),"assets\\accessory"))) #change dir name to whatever
+            accessory = self.__choose_random_asset("assets\\accessory") 
 
-            with open(os.path.join(os.path.dirname(__file__), "assets\\accessory\\" + accessory)) as svg :
-                self.svg_list.append(svg.read())
+            self.__add_to_list("assets\\accessory\\" + accessory)
 
-        self.svg_list.append("</svg>")
+        self.__svg_list.append("</svg>")
 
-        
+    def __choose_random_asset(self,path):
+        return random.choice(os.listdir( os.path.join(os.path.dirname(__file__),path)))
+
+    def __add_to_list(self,path):
+        try :
+            with open(os.path.join(os.path.dirname(__file__),path)) as svg :
+                self.__svg_list.append(svg.read())
+        except :
+            pass
 
     def __str__(self):
 
@@ -80,7 +79,7 @@ class FunkyHorse():
         Returns the entire drawing by joining list elements.
         """
 
-        return("".join(self.svg_list))
+        return("".join(self.__svg_list))
 
     def save_svg(self, path):
 
@@ -96,6 +95,9 @@ class FunkyHorse():
         f.close()
     
     def save_png(self, write_to):
+        """
+        Saves the PNG drawing to specified path.
+        """
         svg2png( self.__str__(), write_to= write_to)
 
 
