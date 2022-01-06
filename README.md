@@ -32,7 +32,7 @@
 pip install Funky-Horse
 ```
 
-### Create an Horse
+### Create a Horse
 ```python
 from funky_horse import FunkyHorse
 horse = FunkyHorse()
