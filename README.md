@@ -1,9 +1,9 @@
 # Funky-Horse - Random avatar generator
 
 <p align="center">
-    <img src="out/demo1.gif" width="20%" />
-    <img src="out/funky_horse_logo.png" width="50%">
-    <img src="out/demo2.gif" width="20%" /> 
+    <img src="https://raw.githubusercontent.com/AlexandreBidon/Funky-Horse/main/out/demo1.gif" width="20%" />
+    <img src="https://raw.githubusercontent.com/AlexandreBidon/Funky-Horse/main/out/funky_horse_logo.png" width="50%">
+    <img src="https://raw.githubusercontent.com/AlexandreBidon/Funky-Horse/main/out/demo2.gif" width="20%" /> 
 </p>
 
 <h2 align ="center">:horse: Horsing around</h2>
@@ -17,14 +17,14 @@
 </p>
 
 
-![-----------------------------------------------------](out/line.png)
+![](https://raw.githubusercontent.com/AlexandreBidon/Funky-Horse/main/out/line.png)
 ## Features
 
 * Over 10 000 unique combinations design-wise, thousands more if you include color schemes
 * Easy to use
 * Supports SVG and PNG output
 
-![-----------------------------------------------------](out/line.png)
+![](https://raw.githubusercontent.com/AlexandreBidon/Funky-Horse/main/out/line.png)
 ## How to Use
 
 ### Install
@@ -40,11 +40,11 @@ horse.save_png("<output_file.png>")
 horse.save_svg("<output_file.svg>")
 ```
 
-![-----------------------------------------------------](out/line.png)
+![](https://raw.githubusercontent.com/AlexandreBidon/Funky-Horse/main/out/line.png)
 ## Credits
 This software uses [CairoSVG](https://pypi.org/project/CairoSVG/).
 
-![-----------------------------------------------------](out/line.png)
+![](https://raw.githubusercontent.com/AlexandreBidon/Funky-Horse/main/out/line.png)
 ## TODO
 Here is a TODO list of things to add for future updates :
 * API version
@@ -59,7 +59,7 @@ If you'd like to give any of these a shot feel free to contribute. Pull requests
 - Video games assets update
 - Summer assets update
 
-![-----------------------------------------------------](out/line.png)
+![](https://raw.githubusercontent.com/AlexandreBidon/Funky-Horse/main/out/line.png)
 ## License
 
 MIT
