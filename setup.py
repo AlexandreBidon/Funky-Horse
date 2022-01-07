@@ -6,7 +6,7 @@ with open("README.md", "r") as fh:
 setuptools.setup(
   name = 'funky_horse',
   packages = ['funky_horse'],
-  version = '1.0.0',
+  version = '1.0.4',
   license='MIT',
   description = 'Python-based fun avatar generator',
   long_description=long_description,
@@ -14,7 +14,7 @@ setuptools.setup(
   author = 'Alexandre Bidon',                   # Type in your name
   author_email = 'alexandre.bidon.44@gmail.com',      # Type in your E-Mail
   url = 'https://github.com/AlexandreBidon/Funky-Horse',   # Provide either the link to your github or to your website
-  download_url = 'https://github.com/AlexandreBidon/Funky-Horse/archive/refs/tags/1.0.0.tar.gz',    # I explain this later on
+  download_url = 'https://github.com/AlexandreBidon/Funky-Horse/archive/refs/tags/1.0.4.tar.gz',    # I explain this later on
   keywords = ['Funky', 'Horse', 'Avatar','svg','png','Generator','Vector'],   # Keywords that define your package best
   install_requires=[            # I get to this in a second
           'cairosvg',
